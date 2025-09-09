@@ -413,13 +413,18 @@ body.dark-theme {
     width: 88%;
     left: 0;
     right: 0;
-    bottom: -100%; /* fully hidden by default on mobile */
+    bottom: 0; /* anchor to bottom */
     margin: 0 auto;
     background-color: var(--body-color);
     box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
     padding: 2rem 1.5rem 5rem;
     border-radius: 2rem;
-    transition: bottom .3s;
+    transition: transform .3s ease, visibility .3s ease;
+    transform: translateY(100%); /* hidden by default */
+    visibility: hidden;
+    max-height: 80vh;
+    overflow-y: auto;
+    z-index: var(--z-fixed);
   }
 }
 
@@ -457,7 +462,8 @@ body.dark-theme {
 
 /* Show menu */
 .show-menu{
-  bottom: 2rem;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 /* Active link */
