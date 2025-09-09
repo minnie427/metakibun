@@ -293,8 +293,8 @@ body.dark-theme {
   --title-color: hsl(207, 4%, 95%);
   --text-color: hsl(207, 4%, 65%);
   --text-color-light: hsl(207, 4%, 56%);
-  --body-color: hsl(207, 4%, 10%);
-  --container-color: hsl(207, 4%, 12%);
+  --body-color: hsl(0, 0%, 5%);
+  --container-color: hsl(0, 0%, 10%);
 }
 
 /*========== 
@@ -305,7 +305,7 @@ body.dark-theme {
 .dark-theme .nav,
 .dark-theme .nav__menu,
 .dark-theme .scrollup{
-  background-color: var(--container-color);
+  background-color: rgb(17, 17, 17);
   box-shadow: 0 4px 20px hsl(207, 24%, 8% .4); 
 }
 
@@ -384,7 +384,7 @@ body.dark-theme {
   justify-content: space-between;
   align-items: center;
   background-color: var(--body-color);
-  box-shadow: 0 4px 20px hsla(207, 24%, 35%, .1);
+  box-shadow: 0 3px 10px hsla(314, 82%, 76%, 0.2);
   padding-inline: 1.5rem;
   border-radius: 3rem;
   transition: background .4s; /* for dark mode animation */
