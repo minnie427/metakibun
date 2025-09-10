@@ -29,25 +29,26 @@ const linkAction = () =>{
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
 /*=============== SWIPER PROJECTS ===============*/
-let swiperProjects = new Swiper(".gallery__container", {
-    loop: true,
-    spaveBetween: 24,
-
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-        el: ".swiper-pagination",
-    },
-    breakpoints: {
-        1200: {
-          slidesPerView: 2,
-          spaceBetween: -56,
-        },
-      
+const galleryContainer = document.querySelector('.gallery__container')
+if (galleryContainer && window.Swiper) {
+  let swiperProjects = new Swiper('.gallery__container', {
+      loop: true,
+      spaceBetween: 24,
+      navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
       },
-});
+      pagination: {
+          el: '.swiper-pagination',
+      },
+      breakpoints: {
+          1200: {
+            slidesPerView: 2,
+            spaceBetween: -56,
+          },
+        },
+  })
+}
 
 
 
@@ -95,7 +96,9 @@ const sendEmail = (e) =>{
             contactProject.value = ''
     }
 }
-contactForm.addEventListener('submit', sendEmail)
+if (contactForm) {
+  contactForm.addEventListener('submit', sendEmail)
+}
 
 
 
@@ -123,35 +126,13 @@ window.addEventListener('scroll', scrollActive)
 /*=============== SHOW SCROLL UP ===============*/ 
 
 
-/*=============== DARK LIGHT THEME ===============*/ 
-const themeButton = document.getElementById('theme-button')
-const darkTheme = 'dark-theme'
-const iconTheme = 'ri-sun-line'
-
-//previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme')
-const selectedIcon = localStorage.getItem('selected-icon')
-
-//we obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ri-moon-line' : 'ri-sun-line'
-
-//we validate if the user previously chose a topic
-if(selectedTheme) {
-    //if validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
-    themeButton.classList[selectedIcon === 'ri-moon-line' ? 'add' : 'remove'](iconTheme)
-}
-
-//Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    //add or remove the dark /icon theme
-    document.body.classList.toggle(darkTheme)
-    themeButton.classList.toggle(iconTheme)
-    //we save the theme and the current icon that the user chose
-    localStorage.setItem('selected-theme', getCurrentTheme())
-    localStorage.setItem('selected-icon', getCurrentIcon())
-})
+/*=============== DARK MODE FORCED ===============*/ 
+// Ensure dark theme is applied on load and ignore any stored preference
+document.body.classList.add('dark-theme')
+try {
+  localStorage.removeItem('selected-theme')
+  localStorage.removeItem('selected-icon')
+} catch (e) {}
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 

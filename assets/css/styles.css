@@ -10,13 +10,13 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(312, 100%, 51%);
+  --first-color: hsl(312, 80%, 55%);
   --title-color: hsl(0, 0%, 11%);
-  --text-color: hsl(207, 4%, 28%);
+  --text-color: hsl(0, 0%, 88%);
  /*  --text-color-light: hsl(0, 0%, 79%); */
   --body-color: hsl(0, 0%, 91%);
   --body-color2: hsl(310, 100%, 51%);
-  --body-color3: hsl(0, 0%, 69%);
+  --body-color3: hsl(0, 0%, 87%);
   --container-color: hsl(207, 4%, 95%);
 
   /* Change the first number */
@@ -33,7 +33,7 @@
   --h1-font-size: 2rem;
   --h2-font-size: 1.5rem;
   --h3-font-size: 1.25rem;
-  --normal-font-size: 1.2rem;
+  --normal-font-size: 1.05rem;
   --small-font-size: 0.9rem;
   --smaller-font-size: .8rem;
   --tiny-font-size: .7rem;
@@ -224,7 +224,7 @@ body {
 }
 
 h1, h2, h3 {
-  color: var(--fir);
+  color: var(--first-color);
   font-family: var(--title-font);
   font-weight: var(--font-medium);
 }
@@ -240,6 +240,18 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* HOW TO step headings */
+.howto-step {
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+}
+
+/* HOW TO examples: force neutral grey */
+.about__info-description.howto-examples {
+  color: rgb(207, 136, 194);
+  font-weight: 300;
 }
 
 /* Survey image button */
@@ -297,6 +309,16 @@ body.dark-theme {
   --container-color: hsl(0, 0%, 10%);
 }
 
+/*========== Variables Dark theme ==========*/
+/* Black background + pink typography when body has .dark-theme */
+body.dark-theme {
+  --title-color: hsl(322, 100%, 51%);
+  --text-color: hsl(322, 100%, 75%);
+  --text-color-light: hsl(322, 100%, 85%);
+  --body-color: hsl(0, 0%, 0%);
+  --container-color: hsl(0, 0%, 0%);
+}
+
 /*========== 
     Color changes in some parts of 
     the website, in light theme
@@ -305,22 +327,22 @@ body.dark-theme {
 .dark-theme .nav,
 .dark-theme .nav__menu,
 .dark-theme .scrollup{
-  background-color: rgb(17, 17, 17);
-  box-shadow: 0 4px 20px hsl(207, 24%, 8% .4); 
+  background-color: var(--container-color);
+  box-shadow: 0 4px 20px hsla(322, 100%, 30%, .2);
 }
 
 .dark-theme .section__border{
-  border-bottom: 1px solid var(--body-color3);
+  border-bottom: 1px solid #ffffff; /* white divider in dark mode */
 }
 
 .dark-theme::-webkit-scrollbar{
-  background-color: hsl(0, 0%, 13%);
+  background-color: hsl(0, 0%, 10%);
 }
 .dark-theme::-webkit-scrollbar-thumb{
-  background-color: hsl(314, 100%, 32%);
+  background-color: hsl(322, 100%, 35%);
 }
 .dark-theme::-webkit-scrollbar-thumb:hover{
-  background-color: hsl(307, 100%, 54%);
+  background-color: hsl(322, 100%, 45%);
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -341,13 +363,14 @@ body.dark-theme {
 }
 
 .section__border {
-  border-bottom: 1px solid var(--title-color);
+  border-bottom: 1px solid #ffffff; /* white divider */
   padding-bottom: 3.5rem;
 }
 
 .section__title, 
 .section__subtitle {
   text-align: center;
+  margin-top: 70px;
 }
 
 .section__title {
@@ -372,8 +395,8 @@ body.dark-theme {
  .header{
   width: 100%;
   position: fixed;
-  bottom: 2rem;
-  left: 2rem;
+  bottom: 2rem;      /* place header/nav at bottom on mobile */
+  top: initial;
   left: 0;
   z-index: var(--z-fixed);
  }
@@ -563,11 +586,19 @@ body.dark-theme {
 
 .about__info-description{
   font-family: var(--body-font);
-  color: var(--title-color);
+  font-weight: 300;
+  color: rgb(196, 196, 196);
+  font-size: var(--normal-font-size);
 }
 
 .about__info-description{
   padding-right: 1rem;
+}
+
+/* Ensure HOW TO step lines override default paragraph style */
+.about__info-description.howto-step{
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
 }
 
 
@@ -969,6 +1000,7 @@ transition: background .4s; /* for dark mode animation */
 .footer__container{
   padding: 3rem 0 7rem;
   text-align: center;
+  color: rgb(196, 196, 196);
 }
 
 .footer__title{
@@ -981,7 +1013,7 @@ transition: background .4s; /* for dark mode animation */
   display: block;
   margin-top: 4.5rem;
   font-size: var(--small-font-size);
-  color: var(--text-color-light);
+  color: rgb(196, 196, 196);
 }
 
 /*=============== SCROLL BAR ===============*/
