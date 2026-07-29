@@ -55,10 +55,10 @@
     --h1-font-size: 2.5rem;
     --h2-font-size: 1.8rem;
     --h3-font-size: 1.3rem;
-    --normal-font-size: 1.5rem;
-    --small-font-size: 1.3rem;
-    --smaller-font-size: 1.3rem;
-    --tiny-font-size: 1rem;
+    --normal-font-size: 1.15rem;
+    --small-font-size: 1rem;
+    --smaller-font-size: 0.9rem;
+    --tiny-font-size: 0.8rem;
   }
 }
 
@@ -1164,7 +1164,12 @@ transition: background .4s; /* for dark mode animation */
   }
 
   .nav__link{
-    font-size: var(--smaller-font-size);
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  body{
+    font-size: 0.95rem;
   }
 
   .dark-theme .nav,
