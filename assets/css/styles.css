@@ -507,6 +507,21 @@ body.dark-theme {
   margin-bottom: .5rem;
 }
 
+.home__image{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.home__image-img{
+  width: min(90vw, 360px);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 1rem;
+}
+
 .home__blob{
   position: relative;
   width: 300px;
@@ -1225,7 +1240,8 @@ transition: background .4s; /* for dark mode animation */
 }
 
 .home__title{
-  font-size: var(--biggest-font-size);
+  font-size: 2.3rem;
+  color: var(--first-color);
 }
 
 .home__blob{
