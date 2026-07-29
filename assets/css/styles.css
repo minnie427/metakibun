@@ -255,9 +255,10 @@ img {
 }
 
 /* Survey image button */
-.survey-button {
-  width: 90vw;
-  max-width: 80vw;
+.survey-button,
+.insta-button {
+  width: min(100%, 580px);
+  max-width: 100%;
   height: auto;
   display: inline-block;
   cursor: pointer;
@@ -265,25 +266,20 @@ img {
 }
 
 .survey-button:hover,
-.survey-button:focus {
-  transform: translateY(-2px) scale(1.02);
-  opacity: 0.95;
-}
-
-/* Instagram image button */
-.insta-button {
-  width: 90vw;
-  max-width: 80vw;
-  height: auto;
-  display: inline-block;
-  cursor: pointer;
-  transition: transform .2s ease, opacity .2s ease;
-}
-
+.survey-button:focus,
 .insta-button:hover,
 .insta-button:focus {
   transform: translateY(-2px) scale(1.02);
   opacity: 0.95;
+}
+
+@media screen and (min-width: 1024px) {
+  .survey-button,
+  .insta-button {
+    width: 420px;
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 /*=============== THEME ===============*/
@@ -785,10 +781,11 @@ transition: background .4s; /* for dark mode animation */
 }
 
 .weekly__container img{
-  width: 100vw;
- justify-content: center;
- margin-bottom: 1.5rem;
- margin-top: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  display: block;
+  margin: 1.5rem auto;
+  height: auto;
 }
 
 .weekly p{
@@ -1121,6 +1118,25 @@ transition: background .4s; /* for dark mode animation */
     column-gap: 3rem;
     margin-inline: 1.5rem;
     padding: 0;
+  }
+
+  .home__container {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .home__data {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .home__title {
+    font-size: 2.25rem;
+  }
+
+  .home__image {
+    margin-top: 1.5rem;
   }
 
   .nav__link i,
